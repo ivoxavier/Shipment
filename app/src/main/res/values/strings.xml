@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Shipment</string>
+    <string name="top_title_config_account">Config Account</string>
+    <string name="label_customer_account">Customer Account</string>
+    <string name="label_user_account">User</string>
+    <string name="label_password_account">Password</string>
+    <string name="label_btn_get_token">Get Token</string>
+</resources>
