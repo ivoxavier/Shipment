@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 
 class ConfigAccountViewModel(application: Application) : AndroidViewModel(application)  {
 
+
     //region LiveData
     private val _account = MutableLiveData<String>()
     val account: MutableLiveData<String> = _account

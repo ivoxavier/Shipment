@@ -5,4 +5,5 @@
     <string name="label_user_account">User</string>
     <string name="label_password_account">Password</string>
     <string name="label_btn_get_token">Get Token</string>
+    <string name="api_msg_unexpected_error">Unexpected error</string>
 </resources>

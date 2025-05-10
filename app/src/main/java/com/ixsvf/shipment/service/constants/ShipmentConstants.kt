@@ -18,5 +18,14 @@ class ShipmentConstants private constructor() {
     //endregion
 
 
+    //API
+    object HTTP {
+        object RESPONSE{
+            const val SUCCESS = 200
+
+        }
+    }
+
+
 
 }
