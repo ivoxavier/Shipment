@@ -1,5 +1,6 @@
 package com.ixsvf.shipment.service.repository.remote
 
+import com.ixsvf.shipment.service.constants.ShipmentConstants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -11,7 +12,7 @@ class RetrofitClient private constructor() {
     companion object{
         private lateinit var INSTANCE: Retrofit
 
-        private var API_URL = ""
+        private var API_URL = ShipmentConstants.API.URL.BASE_URL
 
         fun getBaseUrl(): String {
             return API_URL
