@@ -4,9 +4,14 @@ import android.app.Application
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.ixsvf.shipment.service.repository.ConfigAccountRepository
+import com.ixsvf.shipment.service.repository.listener.APIListener
+import com.ixsvf.shipment.service.repository.model.AccountModel
 
 class ConfigAccountViewModel(application: Application) : AndroidViewModel(application)  {
 
+
+    private val configAccountRepository = ConfigAccountRepository(application)
 
     //region LiveData
     private val _account = MutableLiveData<String>()
@@ -45,5 +50,25 @@ class ConfigAccountViewModel(application: Application) : AndroidViewModel(applic
 
     fun allFieldsFilled(map: Map<String, Boolean>): Boolean {
         return map.values.all { it}
+    }
+
+    fun getToken(){
+        val model = AccountModel().apply {
+            account = _account.value.toString()
+            user = _user.value.toString()
+            password = _password.value.toString()
+        }
+        val listener = object : APIListener<String> {
+            override fun onSuccess(result: String) {
+                println("If you see this message 50% of the work is done")
+            }
+
+            override fun onFailure(message: String) {
+                println("If you see this message 50% of the work is done")
+            }
+
+        }
+        configAccountRepository.createAccount(model,listener
+        )
     }
 }

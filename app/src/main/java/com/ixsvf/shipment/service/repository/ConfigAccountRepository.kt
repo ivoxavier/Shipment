@@ -2,7 +2,11 @@ package com.ixsvf.shipment.service.repository
 
 import android.content.Context
 import com.ixsvf.shipment.service.repository.remote.RetrofitClient
+import com.ixsvf.shipment.service.repository.remote.endpoints.SessionLoginBody
 import com.ixsvf.shipment.service.repository.remote.endpoints.SessionLoginService
+import com.ixsvf.shipment.service.repository.listener.APIListener
+import com.ixsvf.shipment.service.repository.model.AccountModel
+
 
 class ConfigAccountRepository(context: Context) : BaseRepository(context) {
     private val remote = RetrofitClient.getService(SessionLoginService::class.java)
@@ -16,6 +20,12 @@ class ConfigAccountRepository(context: Context) : BaseRepository(context) {
             }
             return repository
         }
+    }
+
+    fun createAccount(account: AccountModel, listener: APIListener<String>){
+        //ignore if connection is available for now
+        val call = remote.postTestMessage(account)
+        executeCall(call, listener)
     }
 
 }

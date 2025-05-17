@@ -1,20 +1,19 @@
 package com.ixsvf.shipment.service.repository.remote.endpoints
 
+import com.ixsvf.shipment.service.constants.ShipmentConstants
+import com.ixsvf.shipment.service.repository.model.AccountModel
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 import retrofit2.http.Path
 
 
-data class SessionLoginBody(
-    val account: String,
-    val user: String,
-    val password: String
-)
+
 
 
 
 interface SessionLoginService {
-    @POST("http://192.168.1.73:8088/test")
-    fun postTestMessage(@Body requestBody: SessionLoginBody): Call<Void>
+    @POST(ShipmentConstants.API.URL.TEST_SERVICE)
+    fun postTestMessage(@Body requestBody: AccountModel): Call<Void>
 }

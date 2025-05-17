@@ -39,19 +39,23 @@ class ConfigAccountActivity: ComponentActivity() {
                         }
                     }
                     item{
-                        SimpleOutlineTextField(textLabel = resources.getString(R.string.label_customer_account))
+                        SimpleOutlineTextField(viewModel,resources.getString(R.string.label_customer_account),1)
                     }
                     item{
-                        SimpleOutlineTextField(textLabel = resources.getString(R.string.label_user_account))
+                        SimpleOutlineTextField(viewModel,resources.getString(R.string.label_user_account),2)
                     }
                     item{
-                        PasswordTextField(textLabel = resources.getString(R.string.label_password_account))
+                        PasswordTextField(viewModel,resources.getString(R.string.label_password_account))
                 }
 
                     item{
                         Row(modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.Center) {
-                            ConfirmButton(label = resources.getString(R.string.label_btn_get_token),onClick={})
+                            ConfirmButton(label = resources.getString(R.string.label_btn_get_token),onClick={
+                                if(viewModel.allFieldsFilled(viewModel.allSet)){
+                                    viewModel.getToken()
+                                }
+                            })
                         }
 
                     }

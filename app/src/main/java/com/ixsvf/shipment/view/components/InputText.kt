@@ -14,25 +14,34 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import com.ixsvf.shipment.viewmodel.ConfigAccountViewModel
 
 @Composable
-fun SimpleOutlineTextField(textLabel: String){
+fun SimpleOutlineTextField(viewModel: ConfigAccountViewModel, textLabel: String, field: Int){
     var text by remember { mutableStateOf("") }
 
     OutlinedTextField(
         value = text,
-        onValueChange = {text = it},
+        onValueChange = {
+            text = it
+                    when(field){
+                        1 -> viewModel.setAccount(it)
+                        2 -> viewModel.setUser(it)
+                    }
+        },
         label = {Text(textLabel)},
         modifier = Modifier.fillMaxWidth()
     )
 }
 
 @Composable
-fun PasswordTextField(textLabel: String){
+fun PasswordTextField(viewModel: ConfigAccountViewModel, textLabel: String){
     var password by rememberSaveable { mutableStateOf("") }
     TextField(
         value = password,
-        onValueChange = {password = it},
+        onValueChange = {
+            password = it
+            viewModel.setPassword(password)},
         label = {Text(textLabel)},
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
