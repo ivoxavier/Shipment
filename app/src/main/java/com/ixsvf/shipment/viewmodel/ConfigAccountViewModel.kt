@@ -68,7 +68,6 @@ class ConfigAccountViewModel(application: Application) : AndroidViewModel(applic
             }
 
         }
-        configAccountRepository.createAccount(model,listener
-        )
+        configAccountRepository.createAccount(model,listener)
     }
 }

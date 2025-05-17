@@ -10,10 +10,7 @@ import retrofit2.http.Path
 
 
 
-
-
-
 interface SessionLoginService {
     @POST(ShipmentConstants.API.URL.TEST_SERVICE)
-    fun postTestMessage(@Body requestBody: AccountModel): Call<Void>
+    fun postTestMessage(@Body requestBody: AccountModel): Call<String>
 }

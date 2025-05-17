@@ -2,7 +2,6 @@ package com.ixsvf.shipment.service.repository
 
 import android.content.Context
 import com.ixsvf.shipment.service.repository.remote.RetrofitClient
-import com.ixsvf.shipment.service.repository.remote.endpoints.SessionLoginBody
 import com.ixsvf.shipment.service.repository.remote.endpoints.SessionLoginService
 import com.ixsvf.shipment.service.repository.listener.APIListener
 import com.ixsvf.shipment.service.repository.model.AccountModel
