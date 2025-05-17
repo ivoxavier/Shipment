@@ -21,7 +21,7 @@ class ShipmentConstants private constructor() {
     //API
     object API {
         object URL{
-            const val BASE_URL = "http://192.168.1.73:8088/"
+            const val BASE_URL = "http://192.168.221.251"
             const val TEST_SERVICE = "test"
         }
         object HTTP{
